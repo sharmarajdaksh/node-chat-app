@@ -75,11 +75,11 @@ socket.on('newLocationMessage', function (message) {
 
 $('#message-form').on('submit', function (e) {
     e.preventDefault();
-
+    const params = $.deparam(window.location.search);
     const formInput = $('[name=message]');
 
     socket.emit('createMessage', {
-        from: 'User',
+        from: params.name,
         text: formInput.val()
     }, function () {
         formInput.val('');
