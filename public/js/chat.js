@@ -89,7 +89,6 @@ $('#message-form').on('submit', function (e) {
     const formInput = $('[name=message]');
 
     socket.emit('createMessage', {
-        from: params.name,
         text: formInput.val()
     }, function () {
         formInput.val('');
